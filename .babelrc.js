@@ -43,14 +43,6 @@ function preset(context, options = {}) {
       r('babel-plugin-transform-object-rest-spread'),
       r('babel-plugin-transform-class-properties'),
       r('babel-plugin-transform-function-bind'),
-      [
-        r('babel-plugin-transform-runtime'),
-        {
-          // we are only polyfilling the node environment
-          // so we need to enable the runtime replacements for the browser preset
-          polyfill: !!browser,
-        },
-      ],
       r('babel-plugin-transform-flow-strip-types'),
     ],
   }
