@@ -1,0 +1,12 @@
+{
+  "presets": [
+    "./.babelrc.js"
+  ],
+  "env": {
+    "production": {
+      "ignore": [
+        "__tests__"
+      ]
+    }
+  }
+}

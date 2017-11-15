@@ -1,0 +1,9 @@
+.DS_Store
+node_modules/
+*.log
+*.js
+!jest.config.js
+!.babelrc.js
+!src/*.js
+!src/__tests__/*.js
+!scripts/*.js

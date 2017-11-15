@@ -1,0 +1,8 @@
+src/
+scripts/
+.babelrc
+.babelrc.js
+.gitignore
+.eslintignore
+.eslintrc
+jest.config.js
