@@ -1,6 +1,6 @@
 {
   "name": "@uptimeventures/react-wizard",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Lightweight, multi-step flow control for React and React Native.",
   "main": "index.js",
   "scripts": {
