@@ -21,7 +21,7 @@
   "license": "SEE LICENSE IN LICENSE",
   "dependencies": {
     "prop-types": "15.6.0",
-    "react": "16.1.0"
+    "react": "16.1.1"
   },
   "devDependencies": {
     "babel-cli": "6.26.0",
