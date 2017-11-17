@@ -8,6 +8,7 @@ import { Component } from 'react'
 import PropTypes from 'prop-types'
 
 type Props = {
+  onComplete: Function,
   steps: Array<mixed>,
   render: Function,
   children: Function,
@@ -39,7 +40,15 @@ export default class Wizard extends Component<Props, State> {
 
   next = () => {
     const index = this.state.index === this.props.steps.length - 1 ? this.props.steps.length - 1 : this.state.index + 1
+ 
     this.setState({ index })
+
+    if (
+      index === this.props.steps.length - 1 &&
+      typeof this.props.onComplete === 'function'
+    ) {
+      this.props.onComplete()
+    }
   }
 
   prev = () => {

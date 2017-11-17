@@ -135,4 +135,34 @@ describe('<Wizard/>', () => {
     expect(rendered.contains(<h2>Step One</h2>)).toBe(false)
     expect(rendered.contains(<h2>Step Three</h2>)).toBe(true)
   })
+
+  it('should fire onComplete when complete', () => {
+    const fn = jest.fn()
+    const rendered = mount(
+      <Wizard
+        steps={[
+          { component: () => <h2>Step One</h2> },
+          { component: () => <h2>Step Two</h2> },
+        ]}
+        onComplete={fn}
+      >
+        {() =>
+          <div>
+            <WizardContent/>
+            <Navigation>
+              {({ next, prev }) => (
+                <div>
+                  <button id="next" onClick={next}>Next</button>
+                  <button id="prev" onClick={prev}>Prev</button>
+                </div>
+              )}
+            </Navigation>
+          </div>
+        }
+      </Wizard>
+    )
+
+    rendered.find('button#next').simulate('click')
+    expect(fn.mock.calls.length).toBe(1)
+  })
 })
