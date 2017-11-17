@@ -9,6 +9,7 @@ import PropTypes from 'prop-types'
 
 type Props = {
   onComplete: Function,
+  onUpdate: Function,
   steps: Array<mixed>,
   render: Function,
   children: Function,
@@ -49,11 +50,20 @@ export default class Wizard extends Component<Props, State> {
     ) {
       this.props.onComplete()
     }
+
+    if (typeof this.props.onUpdate === 'function') {
+      this.props.onUpdate({ index })
+    }
   }
 
   prev = () => {
     const index = this.state.index === 0 ? this.state.index : this.state.index - 1
+
     this.setState({ index })
+
+    if (typeof this.props.onUpdate === 'function') {
+      this.props.onUpdate({ index })
+    }
   }
 
   getChildContext() {

@@ -165,4 +165,38 @@ describe('<Wizard/>', () => {
     rendered.find('button#next').simulate('click')
     expect(fn.mock.calls.length).toBe(1)
   })
+
+  it('should fire onUpdate on state change', () => {
+    const onUpdate = jest.fn()
+    const onComplete = jest.fn()
+    const rendered = mount(
+      <Wizard
+        steps={[
+          { component: () => <h2>Step One</h2> },
+          { component: () => <h2>Step Two</h2> },
+        ]}
+        onUpdate={onUpdate}
+        onComplete={onComplete}
+      >
+        {() =>
+          <div>
+            <WizardContent/>
+            <Navigation>
+              {({ next, prev }) => (
+                <div>
+                  <button id="next" onClick={next}>Next</button>
+                  <button id="prev" onClick={prev}>Prev</button>
+                </div>
+              )}
+            </Navigation>
+          </div>
+        }
+      </Wizard>
+    )
+
+    rendered.find('button#next').simulate('click')
+    rendered.find('button#prev').simulate('click')
+    expect(onUpdate.mock.calls.length).toBe(2)
+    expect(onComplete.mock.calls.length).toBe(1)
+  })
 })
