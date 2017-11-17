@@ -41,7 +41,7 @@ export default class Wizard extends Component<Props, State> {
 
   next = () => {
     const index = this.state.index === this.props.steps.length - 1 ? this.props.steps.length - 1 : this.state.index + 1
- 
+
     this.setState({ index })
 
     if (
