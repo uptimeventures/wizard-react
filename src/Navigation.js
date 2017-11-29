@@ -7,7 +7,12 @@
 import { Component } from 'react'
 import PropTypes from 'prop-types'
 
-export default class Nav extends Component {
+type Props = {
+  render?: Function,
+  children?: Function,
+}
+
+export default class Nav extends Component<Props, void> {
   static contextTypes = {
     wizard: PropTypes.object,
   }

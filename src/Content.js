@@ -17,11 +17,12 @@ const createElementFromStep = s => {
   }
 }
 
-export default class Content extends Component {
+export default class Content extends Component<void, void> {
   static contextTypes = {
     wizard: PropTypes.object,
   }
 
+  // $FlowIgnore
   get currentStep() {
     const { steps, index } = this.context.wizard
     if (typeof steps[index] !== 'undefined') {
@@ -31,6 +32,7 @@ export default class Content extends Component {
   }
 
   render() {
+    // $FlowIgnore
     const Component = this.currentStep
     return <Component/>
   }

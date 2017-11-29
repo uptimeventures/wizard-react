@@ -7,15 +7,21 @@
 import { Component } from 'react'
 import PropTypes from 'prop-types'
 
-type Props = {
+export type Step = {
+  name: string,
+  component?: string,
+  render?: string,
+}
+
+export type Props = {
   onComplete: Function,
   onUpdate: Function,
-  steps: Array<mixed>,
+  steps: Array<Function | Step>,
   render: Function,
   children: Function,
 }
 
-type State = {
+export type State = {
   index: number,
 }
 
@@ -32,8 +38,8 @@ export default class Wizard extends Component<Props, State> {
     index: 0,
   }
 
-  jump = to => {
-    const index = this.props.steps.findIndex(f => f.name === to)
+  jump = (to: string) => {
+    const index = this.props.steps.findIndex((f: Step) => f.name === to)
     if (index) {
       this.setState({ index })
     }
