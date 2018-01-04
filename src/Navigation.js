@@ -5,30 +5,29 @@
 // that can be found in LICENSE.md, at the root of this repository.
 
 import { Component } from 'react'
-import PropTypes from 'prop-types'
+
+import WizardContext, { type API } from './WizardContext'
 
 type Props = {
   render?: Function,
   children?: Function,
+  api: API,
 }
 
-export default class Nav extends Component<Props, void> {
-  static contextTypes = {
-    wizard: PropTypes.object,
-  }
-
+class Nav extends Component<Props, void> {
   render() {
-    const { render, children } = this.props
-    const props = this.context.wizard
+    const { api, render, children } = this.props
 
     if (render) {
-      return render(props)
+      return render(api)
     }
 
     if (children) {
-      return children(props)
+      return children(api)
     }
 
     return null
   }
 }
+
+export default WizardContext(Nav)

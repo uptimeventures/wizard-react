@@ -8,9 +8,9 @@ import { Component } from 'react'
 import PropTypes from 'prop-types'
 
 export type Step = {
-  name: string,
-  component?: string,
-  render?: string,
+  name: Function,
+  component?: Function,
+  render?: Function,
 }
 
 export type Props = {

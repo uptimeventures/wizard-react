@@ -5,7 +5,8 @@
 // that can be found in LICENSE.md, at the root of this repository.
 
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+
+import WizardContext, { type API } from './WizardContext'
 
 const createElementFromStep = s => {
   if (typeof s === 'function') {
@@ -17,23 +18,23 @@ const createElementFromStep = s => {
   }
 }
 
-export default class Content extends Component<void, void> {
-  static contextTypes = {
-    wizard: PropTypes.object,
-  }
+export type Props = {
+  render?: Function,
+  children?: Function,
+  api: API,
+}
 
-  // $FlowIgnore
-  get currentStep() {
-    const { steps, index } = this.context.wizard
-    if (typeof steps[index] !== 'undefined') {
-      return createElementFromStep(steps[index])
+class Content extends Component<Props, void> {
+  render() {
+    const { api: { steps, index } } = this.props
+    const Step = createElementFromStep(steps[index])
+
+    if (Step) {
+      return <Step/>
     }
+
     return null
   }
-
-  render() {
-    // $FlowIgnore
-    const Component = this.currentStep
-    return <Component/>
-  }
 }
+
+export default WizardContext(Content)
