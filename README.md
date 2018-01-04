@@ -1,4 +1,4 @@
-# Wizard
+# Wizard :crystal_ball:
 
 [![CI Status
 Badge](https://travis-ci.org/uptimeventures/wizard.svg?branch=master)](https://travis-ci.org/uptimeventures/wizard)
