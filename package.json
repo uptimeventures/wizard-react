@@ -21,13 +21,13 @@
   "license": "SEE LICENSE IN LICENSE",
   "dependencies": {
     "prop-types": "15.6.0",
-    "react": "16.4.2"
+    "react": "16.2.0"
   },
   "devDependencies": {
     "babel-cli": "6.26.0",
     "babel-core": "6.26.3",
     "babel-eslint": "8.2.6",
-    "babel-jest": "23.4.2",
+    "babel-jest": "22.1.0",
     "babel-plugin-transform-class-properties": "6.24.1",
     "babel-plugin-transform-flow-strip-types": "6.22.0",
     "babel-plugin-transform-function-bind": "6.22.0",
@@ -39,17 +39,17 @@
     "enzyme-adapter-react-16": "1.2.0",
     "enzyme-to-json": "3.3.4",
     "eslint": "4.16.0",
-    "eslint-config-standard": "11.0.0",
+    "eslint-config-standard": "10.2.1",
     "eslint-plugin-flowtype": "2.50.0",
-    "eslint-plugin-import": "2.13.0",
+    "eslint-plugin-import": "2.14.0",
     "eslint-plugin-node": "5.2.1",
     "eslint-plugin-promise": "3.6.0",
     "eslint-plugin-react": "7.6.0",
     "eslint-plugin-standard": "3.0.1",
     "flow-bin": "0.64.0",
-    "jest": "23.5.0",
+    "jest": "22.1.4",
     "raf": "3.4.0",
-    "react-dom": "16.4.2"
+    "react-dom": "16.2.0"
   },
   "publishConfig": {
     "access": "public"
